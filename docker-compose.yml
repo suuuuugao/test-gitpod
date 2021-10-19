@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   elasticsearch:
+    platform: linux/x86_64
     image: elasticsearch:7.8.0
     container_name: es
     environment:
@@ -18,6 +19,7 @@ services:
     networks:
       - elastic
   logstash:
+    platform: linux/x86_64
     image: logstash:7.8.0
     container_name: log
     environment:
@@ -37,6 +39,7 @@ services:
       - elastic
     command: logstash -f /usr/share/logstash/pipeline/logstash-nginx.config
   kibana:
+    platform: linux/x86_64
     image: kibana:7.8.0
     container_name: kib
     ports:
